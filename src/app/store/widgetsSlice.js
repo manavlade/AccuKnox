@@ -30,7 +30,7 @@ const initialState = {
                         datasets: [
                             {
                                 data: [1689, 681, 360, 7253],
-                                backgroundColor: ["#ff0000", "#FFFF00", "#808080", "#00FF00"],
+                                backgroundColor: ["#E3242B", "#FFFF00", "#808080", "#008000"],
                             }
                         ]
                     }
@@ -82,30 +82,61 @@ const initialState = {
                     name: "Image Risk Assessment",
                     type: "bar",
                     chartData: {
-                        labels: ["critical", "high", "medium", "low", "none"],
+                        labels: [""], // Single row
                         datasets: [
                             {
-                                data: [9, 150, 3, 4, 5],
-                                backgroundColor: ["#ff0000", "#FFFF00", "#808080", "#00FF00", "#0000FF"],
-                            }
-                        ]
-                    }
+                                label: "critical",
+                                data: [9],
+                                backgroundColor: "#E3242B",
+                            },
+                            {
+                                label: "high",
+                                data: [150],
+                                backgroundColor: "#FA8128",
+                            },
+                            {
+                                label: "medium",
+                                data: [3],
+                                backgroundColor: "#FFC107",
+                            },
+                            {
+                                label: "low",
+                                data: [14],
+                                backgroundColor: "#808080",
+                            },
+                        ],
+                    },
                 },
                 {
                     id: "w6",
                     name: "Image Security Issues",
                     type: "bar",
                     chartData: {
-                        labels: ["critical", "high", "medium", "low", "none"],
+                        labels: [""], 
                         datasets: [
                             {
-                                data: [2, 2, 3, 4, 5],
-                                backgroundColor: ["#ff0000", "#FFFF00", "#808080", "#00FF00", "#0000FF"],
-                            }
-                        ]
-                    }
-                },
-
+                                label: "critical",
+                                data: [2],
+                                backgroundColor: "#990F02",
+                            },
+                            {
+                                label: "high",
+                                data: [2],
+                                backgroundColor: "#E3242B",
+                            },
+                            {
+                                label: "medium",
+                                data: [3],
+                                backgroundColor: "#FA8128",
+                            },
+                            {
+                                label: "low",
+                                data: [4],
+                                backgroundColor: "#808080",
+                            },
+                        ],
+                    },
+                }
 
             ]
         }
@@ -123,7 +154,7 @@ const dashboardSlice = createSlice({
 
             if (category) {
                 category.widgets.push({
-                    id: "w" + (category.widgets.length + 1), 
+                    id: "w" + (category.widgets.length + 1),
                     name: name || "Untitled Widget",
                     type: type || "text",
                     chartData: chartData || {},

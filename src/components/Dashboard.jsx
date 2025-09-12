@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import AddWidgetDialog from "./AddWidgetDialog";
 import { setSearchQuery } from "@/app/store/widgetsSlice";
 import Widget from "./Widget";
-import { Search } from "lucide-react";
+import { Clock, EllipsisVertical, Repeat2, Search } from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 export default function Dashboard() {
@@ -49,11 +49,22 @@ export default function Dashboard() {
       <div className="bg-blue-50 p-4 rounded-lg shadow">
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between mb-6 gap-3">
           <h1 className="text-lg font-semibold">CNAPP Dashboard</h1>
-          <select className="border rounded px-3 py-1 w-full md:w-auto">
-            <option>Last 2 days</option>
-            <option>Last 7 days</option>
-            <option>Last 30 days</option>
-          </select>
+          <div className="flex items-center gap-5" >
+            <div className="cursor-pointer bg-white text-black p-2" >
+              <Repeat2/>
+            </div>
+            <div className="bg-white text-black p-2" >
+              <EllipsisVertical/>
+            </div>
+            <div className="flex items-center bg-white p-1 border border-blue-800 rounded">
+              <Clock className=" text-blue-800 font-bold" />
+              <select className=" px-3 py-1 w-full md:w-auto text-blue-800 font-bold">
+                <option>Last 2 days</option>
+                <option>Last 7 days</option>
+                <option>Last 30 days</option>
+              </select>
+            </div>
+          </div>
         </div>
 
         {/* 🔹 Categories */}
@@ -61,8 +72,6 @@ export default function Dashboard() {
           {categories.map((cat) => (
             <div key={cat.id}>
               <h2 className="text-lg font-semibold mb-4">{cat.name}</h2>
-
-              {/* Responsive grid: 1 col (mobile), 2 (tablet), 3 (desktop) */}
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 bg-white p-3 rounded-lg">
                 {cat.widgets
                   .filter((w) =>
@@ -72,7 +81,6 @@ export default function Dashboard() {
                     <Widget key={widget.id} widget={widget} categoryId={cat.id} />
                   ))}
 
-                {/* Add Widget Box */}
                 <div
                   onClick={() => {
                     setActiveCategoryId(cat.id);
