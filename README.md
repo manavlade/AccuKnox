@@ -46,4 +46,11 @@ The dashboard allows you to:
    git clone https://github.com/your-username/cnapp-dashboard.git
    cd cnapp-dashboard
 
+2. Install dependencies:
+   ```bash
    npm i -f
+
+3. Run the development server:
+   ```bash
+   npm run dev
+
