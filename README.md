@@ -29,17 +29,6 @@ The dashboard allows you to:
 - ❌ **Remove Widget** per category
 - 📱 **Responsive UI** (mobile-first with Tailwind breakpoints)
 
----
-
-## 📸 Screenshots
-
-### Dashboard View
-![Dashboard Screenshot](./screenshots/dashboard.png)
-
-### Add Widget Dialog
-![Add Widget Screenshot](./screenshots/add-widget.png)
-
----
 
 ## 🛠️ Tech Stack
 - **Frontend:** React (Vite), JSX
@@ -56,3 +45,5 @@ The dashboard allows you to:
    ```bash
    git clone https://github.com/your-username/cnapp-dashboard.git
    cd cnapp-dashboard
+
+   npm i -f
